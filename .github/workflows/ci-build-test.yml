@@ -24,7 +24,7 @@ jobs:
     - name: npm install
       run: |
         npm install
-        npm run report-coverage --token={{secrets.codecoverageToken}}
+        npx nyc report --reporter=text-lcov > coverage.lcov && codecov --token={{secrets.codecoverageToken}}
   test:
     name: Test
     runs-on: ubuntu-latest
