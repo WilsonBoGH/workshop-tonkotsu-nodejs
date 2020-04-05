@@ -24,18 +24,8 @@ jobs:
     - name: npm install
       run: |
         npm install
-        npx nyc report --reporter=text-lcov > coverage.lcov && codecov --token={{secrets.codecoverageToken}}
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-    - name: npm test
-      run: |
         npm run test
+        
         
         
         
